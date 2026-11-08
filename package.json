@@ -1,0 +1,19 @@
+{
+  "name": "ai-visibility-check",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node test/smoke.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^3.114.17"
+  },
+  "description": "Free checker: is your Lovable/Bolt/v0 app invisible to AI crawlers?",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naffiziqbal/ai-visibility-check"
+  }
+}

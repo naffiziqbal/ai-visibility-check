@@ -1,0 +1,18 @@
+name = "ai-visibility-check"
+main = "src/worker.js"
+compatibility_date = "2025-06-01"
+
+# Custom domain (zone nexusbenders.bd is on this Cloudflare account)
+routes = [ { pattern = "check.nexusbenders.bd", custom_domain = true } ]
+
+# Static files in ./public are served first; anything else (like /api/check) reaches the worker.
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# Optional: KV namespace that logs checked hosts. Create with
+#   npx wrangler kv namespace create CHECKS
+# then paste the id below and uncomment.
+# [[kv_namespaces]]
+# binding = "CHECKS"
+# id = ""
