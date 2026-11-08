@@ -8,7 +8,7 @@
     "test": "node test/smoke.mjs"
   },
   "devDependencies": {
-    "wrangler": "^3.114.17"
+    "wrangler": "^4.158.0"
   },
   "description": "Free checker: is your Lovable/Bolt/v0 app invisible to AI crawlers?",
   "license": "MIT",

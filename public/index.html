@@ -15,35 +15,36 @@
 <meta name="twitter:title" content="Is your Lovable app invisible to AI?">
 <meta name="twitter:description" content="See what AI crawlers actually receive from your app. Free check.">
 <meta name="twitter:image" content="https://check.nexusbenders.bd/og.png">
-<link rel="icon" href="/mark.png">
+<link rel="icon" href="/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0E0F13; --panel: #16181E; --panel-2: #1C1F27; --line: #2A2E38;
-    --text: #ECEDEF; --muted: #9CA1AD; --dim: #6B7180;
-    --orange: #FF7A2F; --amber: #FFBA46;
-    --fail: #FF5D5D; --warn: #FFBA46; --pass: #45D483;
+    /* Nexus Benders brand tokens (same as nexusbenders.bd) */
+    --bg: #0B0D10; --panel: #14171C; --panel-2: #1B1F26; --line: #262B33;
+    --text: #F3F4F6; --muted: #969DA8; --dim: #6B7280;
+    --accent: #C5F467; --accent-ink: #0B0D10;
+    --fail: #FF8A7A; --warn: #F5C451; --pass: #7FD8A4;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 Inter, system-ui, -apple-system, sans-serif; }
-  a { color: var(--amber); }
+  a { color: var(--accent); }
   .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
   header { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
   .brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font: 600 15px Inter, sans-serif; }
   .brand img { width: 28px; height: 28px; border-radius: 7px; }
   header nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
   .hero { padding: 48px 0 24px; }
-  .eyebrow { font: 600 13px "JetBrains Mono", monospace; color: var(--orange); letter-spacing: .04em; text-transform: uppercase; }
+  .eyebrow { font: 600 13px "JetBrains Mono", monospace; color: var(--accent); letter-spacing: .04em; text-transform: uppercase; }
   h1 { font: 700 clamp(34px, 6vw, 56px)/1.05 "Space Grotesk", sans-serif; margin: 12px 0 16px; letter-spacing: -0.02em; }
-  h1 em { font-style: normal; background: linear-gradient(90deg, var(--orange), var(--amber)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h1 em { font-style: normal; color: var(--accent); }
   .lede { color: var(--muted); font-size: 18px; max-width: 640px; margin: 0; }
   form { display: flex; gap: 10px; margin: 32px 0 8px; flex-wrap: wrap; }
   input[type=url], input[type=text] { flex: 1 1 280px; min-width: 0; background: var(--panel); border: 1px solid var(--line); color: var(--text); font: 16px "JetBrains Mono", monospace; padding: 15px 16px; border-radius: 12px; outline: none; }
-  input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,122,47,.2); }
-  button { background: linear-gradient(90deg, var(--orange), var(--amber)); color: #17120c; border: 0; font: 700 16px Inter, sans-serif; padding: 15px 22px; border-radius: 12px; cursor: pointer; }
+  input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(197,244,103,.18); }
+  button { background: var(--accent); color: var(--accent-ink); border: 0; font: 700 16px Inter, sans-serif; padding: 15px 22px; border-radius: 12px; cursor: pointer; }
   button:disabled { opacity: .6; cursor: wait; }
   .hint { color: var(--dim); font-size: 13px; }
   #error { color: var(--fail); margin-top: 12px; min-height: 1em; }
@@ -70,16 +71,16 @@
   .preview .d { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
   .checks { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
   .checks li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
-  .dot { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font: 700 13px Inter, sans-serif; color: #0E0F13; margin-top: 2px; }
+  .dot { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font: 700 13px Inter, sans-serif; color: var(--bg); margin-top: 2px; }
   .dot.fail { background: var(--fail); } .dot.warn { background: var(--warn); } .dot.pass { background: var(--pass); }
   .checks b { display: block; }
   .checks span { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
-  .cta { margin-top: 24px; border-radius: 16px; padding: 24px; background: linear-gradient(135deg, rgba(255,122,47,.16), rgba(255,186,70,.08)); border: 1px solid rgba(255,122,47,.45); }
+  .cta { margin-top: 24px; border-radius: 16px; padding: 24px; background: var(--panel); border: 1px solid rgba(197,244,103,.4); }
   .cta h3 { font: 700 22px "Space Grotesk", sans-serif; margin: 0 0 8px; }
-  .cta p { margin: 0 0 16px; color: #D8DAE0; }
+  .cta p { margin: 0 0 16px; color: var(--muted); }
   .cta .row { display: flex; gap: 10px; flex-wrap: wrap; }
   .btn { display: inline-block; text-decoration: none; font-weight: 700; padding: 12px 18px; border-radius: 10px; }
-  .btn.primary { background: linear-gradient(90deg, var(--orange), var(--amber)); color: #17120c; }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
   .btn.ghost { border: 1px solid var(--line); color: var(--text); }
   section.explain { padding: 24px 0 64px; border-top: 1px solid var(--line); margin-top: 24px; }
   section.explain h2 { font: 700 28px "Space Grotesk", sans-serif; margin: 32px 0 12px; }
@@ -87,14 +88,14 @@
   section.explain strong { color: var(--text); }
   .faq h3 { font: 600 17px Inter, sans-serif; margin: 24px 0 4px; color: var(--text); }
   footer { color: var(--dim); font-size: 13px; padding: 24px 0 40px; border-top: 1px solid var(--line); }
-  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(0,0,0,.3); border-top-color: #17120c; border-radius: 50%; animation: s .8s linear infinite; vertical-align: -2px; margin-right: 6px; }
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(0,0,0,.3); border-top-color: var(--accent-ink); border-radius: 50%; animation: s .8s linear infinite; vertical-align: -2px; margin-right: 6px; }
   @keyframes s { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <a class="brand" href="https://nexusbenders.bd"><img src="/mark.png" alt="">Nexus Benders</a>
+    <a class="brand" href="https://nexusbenders.bd"><img src="/mark.svg" alt="">Nexus Benders</a>
     <nav><a href="#how">How it works</a></nav>
   </header>
 
@@ -113,7 +114,7 @@
 
   <div id="result" aria-live="polite">
     <div class="score">
-      <div class="ring"><svg width="104" height="104" viewBox="0 0 104 104"><circle cx="52" cy="52" r="44" fill="none" stroke="#2A2E38" stroke-width="10"/><circle id="arc" cx="52" cy="52" r="44" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="276.5"/></svg><b id="scoreNum">0</b></div>
+      <div class="ring"><svg width="104" height="104" viewBox="0 0 104 104"><circle cx="52" cy="52" r="44" fill="none" stroke="#262B33" stroke-width="10"/><circle id="arc" cx="52" cy="52" r="44" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="276.5"/></svg><b id="scoreNum">0</b></div>
       <div class="verdict">
         <h2 id="verdict"></h2>
         <p id="verdictSub"></p>
